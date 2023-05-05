@@ -34,6 +34,30 @@ Lalu, jalankan `npm install` di terminal, tunggu sampai selesai install
 <br>
 
 <li>
+Buka XAMPP, nyalakan Apache dan MySQL
+</li>
+
+<br>
+
+<li>
+Pada MySQL, klik Admin.
+</li>
+
+<br>
+
+<li>
+Anda akan di-direct ke halaman local phpMyAdmin. Di halaman itu, buat database baru dengan nama 'uts_2440067175' supaya sama dengan yang di dalam .env
+</li>
+
+<br>
+
+<li>
+Kemudian jalankan `php artisan migrate:fresh --seed` di terminal, tunggu sampai selesai migrate
+</li>
+
+<br>
+
+<li>
 Jalankan `npm run watch-poll` di terminal
 </li>
 
@@ -46,7 +70,7 @@ Buka terminal baru, jalankan `php artisan serve`, jadi ada 2 terminal yang masin
 <br>
 
 <li>
-Navigasi ke localhost yang digenerate oleh `php artisan serve`
+Navigasi ke localhost yang digenerate oleh `php artisan serve`, anda akan di-direct ke instruksi selanjutnya.
 </li>
 </ol>
 
