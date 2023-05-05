@@ -5,7 +5,21 @@
 
     <br>
 
-    <div style="padding-top: 4rem;">
+    <div style="padding-top: 3rem;">
+        <div style="font-size: 20pt; border-radius: 3rem; padding: 0.4rem 0.6rem;" class="fw-bold {{ $user->level }}-level-bg-color text-center">
+            @if($active === 'coffee-list-signature')
+                Signature Beverages
+            @elseif($active === 'coffee-list-espresso')
+                Espresso Beverages
+            @elseif($active === 'coffee-list-brewed')
+                Brewed Beverages
+            @elseif($active === 'coffee-list-blended')
+                Blended Beverages
+            @endif
+        </div>
+
+        <br>
+
         <div class="row row-cols-1 row-cols-md-2 g-4">
             @foreach($coffees as $coffeeKey => $coffeeValue)
 {{--                buat display item-itemnya--}}
