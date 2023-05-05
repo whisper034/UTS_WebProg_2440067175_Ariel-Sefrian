@@ -1,14 +1,24 @@
 body {
-    min-height: 75rem;
-    padding-top: 13rem;
+    min-height: 50rem;
+    padding-top: 14rem;
+    padding-bottom: 10rem;
     margin: 0;
+}
+
+.username {
+    font-size: 14pt;
+}
+
+.profile, .transaction {
+    width: 50%;
+    text-align: center;
 }
 
 .home:hover, .profile:hover, .transaction:hover {
     opacity: 0.6;
 }
 
-.redeem a:hover, .coffee-list a:hover {
+.redeem a:hover, .coffee-list a:hover, .coffee-list-accordion a:hover, .card:hover {
     opacity: 0.6;
     border: solid black 1px;
 }
@@ -36,4 +46,31 @@ body {
 
 .coffee-list a {
     float: right;
+}
+
+/*.coffee-accordion {*/
+/*    margin-top: 12rem;*/
+/*    padding: 0rem 1rem;*/
+/*}*/
+
+.coffee-list-accordion a {
+    text-decoration: none;
+    color: black;
+    font-size: 14pt;
+}
+
+.full-width-accordion {
+    width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+    padding: 0 0.6rem;
+    display: block;
+}
+
+.full-width-accordion-item {
+    width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+    padding: 0.4rem 1.5rem;
+    display: block;
 }

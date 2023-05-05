@@ -11,15 +11,16 @@
 </head>
 <body>
 @include('main.header')
+@include('miscellanous.other.coffee-button')
 
 @if($active === 'profile')
     @include('miscellanous.containers.container-home')
-    @include('miscellanous.other.coffee-button')
+    @yield('coffee-buy-button')
 @elseif($active === 'transaction-history')
-    @include('miscellanous.containers.container-transaction')
-    @include('miscellanous.other.coffee-button')
-@elseif($active === 'coffee')
-    @include('miscellanous.containers.container-transaction')
+    @include('miscellanous.containers.container-transaction-history')
+    @yield('coffee-buy-button')
+@elseif(substr($active, 0, 11) === 'coffee-list')
+    @include('miscellanous.containers.container-coffee')
 @endif
 
 @include('main.footer')

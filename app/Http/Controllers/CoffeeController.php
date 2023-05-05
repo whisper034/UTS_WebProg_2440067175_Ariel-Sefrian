@@ -9,95 +9,78 @@ use Illuminate\Http\Request;
 
 class CoffeeController extends Controller
 {
-    public function signature($id) {
-        $user = User::find($id);
-        $category = CoffeeCategory::orderBy('id')->get();
-        $coffee = Coffee::where('category_id', 1)->get();
+    private function formatPriceInd($coffees): void
+    {
+        foreach ($coffees as $coffeeKey => $coffeeValue) {
+            // ubah format harganya
+            $coffeeValue['ind_price'] = 'Rp'.number_format($coffeeValue['price'], 2, ",", ".");
+        }
+    }
 
-        return view('/page/espressoPage', [
-            'active' => "Profile",
-            'users' => $user,
-            'categories' => $category,
-            'coffees' => $coffee,
-            'currCoffee' => "Espresso"
+    public function onActiveSignature($id) {
+        $user = User::find($id);
+        $categories = CoffeeCategory::orderBy('id')->get();
+        $coffees = Coffee::where('category_id', 1)->get();
+
+        // ubah format harganya
+        $this->formatPriceInd($coffees);
+
+        return view('/main/home', [
+            'active' => "coffee-list-signature",
+            'user' => $user,
+            'categories' => $categories,
+            'coffees' => $coffees
         ]);
     }
 
-    public function espresso($id) {
+    public function onActiveEspresso($id) {
         $user = User::find($id);
-        $category = Category::orderBy('id')->get();
-        $coffee = Coffee::where('category_id', 2)->get();
+        $categories
+            = CoffeeCategory::orderBy('id')->get();
+        $coffees = Coffee::where('category_id', 2)->get();
 
-        $hour = date('G');
-        if($hour >= 5 && $hour <= 11) {
-            $greet = 'Good Morning';
-        }
-        else if($hour >= 12 && $hour <= 17) {
-            $greet = 'Good Afternoon';
-        }
-        else {
-            $greet = 'Good Evening';
-        }
+        // ubah format harganya
+        $this->formatPriceInd($coffees);
 
-        return view('/page/blendedPage', [
-            'title' => "Profile",
-            'greet' => $greet,
-            'users' => $user,
-            'categories' => $category,
-            'coffees' => $coffee,
-            'currCoffee' => "Blended"
+        return view('/main/home', [
+            'active' => "coffee-list-espresso",
+            'user' => $user,
+            'categories' => $categories,
+            'coffees' => $coffees
         ]);
     }
 
-    public function brewed($id) {
+    public function onActiveBrewed($id) {
         $user = User::find($id);
-        $category = Category::orderBy('id')->get();
-        $coffee = Coffee::where('category_id', 3)->get();
+        $categories
+            = CoffeeCategory::orderBy('id')->get();
+        $coffees = Coffee::where('category_id', 3)->get();
 
-        $hour = date('G');
-        if($hour >= 5 && $hour <= 11) {
-            $greet = 'Good Morning';
-        }
-        else if($hour >= 12 && $hour <= 17) {
-            $greet = 'Good Afternoon';
-        }
-        else {
-            $greet = 'Good Evening';
-        }
+        // ubah format harganya
+        $this->formatPriceInd($coffees);
 
-        return view('/page/brewedPage', [
-            'title' => "Profile",
-            'greet' => $greet,
-            'users' => $user,
-            'categories' => $category,
-            'coffees' => $coffee,
-            'currCoffee' => "Brewed"
+        return view('/main/home', [
+            'active' => "coffee-list-brewed",
+            'user' => $user,
+            'categories' => $categories,
+            'coffees' => $coffees
         ]);
     }
 
-    public function blended($id) {
+    public function onActiveBlended($id) {
         $user = User::find($id);
-        $category = Category::orderBy('id')->get();
-        $coffee = Coffee::where('category_id', 4)->get();
+        $categories
+            = CoffeeCategory::orderBy('id')->get();
+        $coffees = Coffee::where('category_id', 4)->get();
 
-        $hour = date('G');
-        if($hour >= 5 && $hour <= 11) {
-            $greet = 'Good Morning';
-        }
-        else if($hour >= 12 && $hour <= 17) {
-            $greet = 'Good Afternoon';
-        }
-        else {
-            $greet = 'Good Evening';
-        }
+        // ubah format harganya
+        $this->formatPriceInd($coffees);
 
-        return view('/page/nonCoffeePage', [
-            'title' => "Profile",
-            'greet' => $greet,
-            'users' => $user,
-            'categories' => $category,
-            'coffees' => $coffee,
-            'currCoffee' => "Non-Coffee"
+        return view('/main/home', [
+            'active' => "coffee-list-blended",
+            'user' => $user,
+            'categories' => $categories,
+            'coffees' => $coffees
         ]);
     }
 }

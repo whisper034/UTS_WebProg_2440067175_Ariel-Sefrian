@@ -3,7 +3,7 @@
         <div>
             Good Morning,
         </div>
-        <div>
+        <div class="username">
             {{ $user->name }}!
         </div>
     </div>
@@ -14,7 +14,7 @@
         <div>
             Good Afternoon,
         </div>
-        <div>
+        <div class="username">
             {{ $user->name }}!
         </div>
     </div>
@@ -25,7 +25,7 @@
         <div>
             Good Evening,
         </div>
-        <div>
+        <div class="username">
             {{ $user->name }}!
         </div>
     </div>

@@ -10,8 +10,10 @@ use Illuminate\Http\Request;
 class TransactionController extends Controller
 {
     public function transactions($id) {
-        $transactions = Transaction::where('user_id', $id)->get();
         $user = User::find($id);
+
+        // sort by transaction_date dari yang terbaru ke terlama
+        $transactions = Transaction::where('user_id', $id)->get()->sortByDesc('transaction_date');
 
         foreach ($transactions as $transactionKey => $transactionValue) {
             // cari coffee yang dibeli
@@ -41,7 +43,8 @@ class TransactionController extends Controller
     public function buyProduct(Request $request) {
         Transaction::insert([
             'user_id' => $request->user_id,
-            'coffee_id' => $request->coffee_id
+            'coffee_id' => $request->coffee_id,
+            'transaction_date' => $request->transaction_date
         ]);
 
         return redirect()->back();
