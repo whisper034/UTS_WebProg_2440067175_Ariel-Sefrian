@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\TransactionController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,5 +16,10 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('instruction.instruction');
 });
+
+Route::get('/{id}', [UserController::class, 'homePage']);
+
+Route::get('/{id}/transactions', [TransactionController::class, 'transactions']);
+Route::post('/buy', [TransactionController::class, 'buyProduct'])->name('buy');

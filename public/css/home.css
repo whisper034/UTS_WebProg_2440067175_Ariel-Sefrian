@@ -1,0 +1,39 @@
+body {
+    min-height: 75rem;
+    padding-top: 13rem;
+    margin: 0;
+}
+
+.home:hover, .profile:hover, .transaction:hover {
+    opacity: 0.6;
+}
+
+.redeem a:hover, .coffee-list a:hover {
+    opacity: 0.6;
+    border: solid black 1px;
+}
+
+.Gold-level-color {
+    color: #C6A961;
+}
+
+.Green-level-color {
+    color: #006F42;
+}
+
+.Gold-level-bg-color {
+    background-color: #C6A961;
+}
+
+.Green-level-bg-color {
+    background-color: #006F42;
+}
+
+.coffee-list {
+    margin-bottom: 4rem;
+    margin-right: 1rem;
+}
+
+.coffee-list a {
+    float: right;
+}
