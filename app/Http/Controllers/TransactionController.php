@@ -40,12 +40,24 @@ class TransactionController extends Controller
         ]);
     }
 
+    private function updateUser($user_id) {
+        $user = User::find($user_id);
+
+        $newPoints = $user->points + 1;
+        $user->points = $newPoints;
+
+        $user->save();
+    }
+
     public function buyProduct(Request $request) {
         Transaction::insert([
             'user_id' => $request->user_id,
             'coffee_id' => $request->coffee_id,
             'transaction_date' => $request->transaction_date
         ]);
+
+        // update user untuk points, setiap transaksi bertambah 1 points
+        $this->updateUser($request->user_id);
 
         return redirect()->back();
     }
