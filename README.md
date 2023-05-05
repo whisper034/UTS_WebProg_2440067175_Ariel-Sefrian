@@ -1,6 +1,8 @@
 
 ## Halo! Selamat datang di aplikasi milik 2440067175 - Ariel Sefrian khusus untuk UTS Web Programming 2023.
 
+Aplikasi ini berbasis mobile phone, sehingga apabila mau melihat tampilannya, Anda <strong>WAJIB</strong> mengubah tampilan browser menjadi mobile phone juga. Disarankan untuk memilih mobile phone: Iphone XR. Cara untuk mengubah tampilan browsernya dapat dilihat di file README ini.
+
 ### Cara setup aplikasi:
 <ol>
 <li>
