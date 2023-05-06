@@ -6,7 +6,7 @@
     <br>
 
     <div style="padding-top: 3rem;">
-        <div style="font-size: 20pt; border-radius: 3rem; padding: 0.4rem 0.6rem;" class="fw-bold {{ $user->level }}-level-bg-color text-center">
+        <div style="font-size: 20pt; border-radius: 3rem; padding: 0.4rem 0.6rem;" class="fw-bold text-white {{ $user->level }}-level-bg-color text-center">
             @if($active === 'coffee-list-signature')
                 Signature Beverages
             @elseif($active === 'coffee-list-espresso')
